@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krcko73-gustozadita.github.io/gustozadita/sitemap.xml
