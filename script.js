@@ -25,30 +25,26 @@ function showLightbox(index) {
     disableScroll();
 }
 
-if (images.length > 0) {
+if (images.length > 0 && lightbox && lightboxImg && btnPrev && btnNext && btnClose) {
     images.forEach((img, index) => {
         img.addEventListener('click', () => showLightbox(index));
     });
 
-    // Close on X
     btnClose.addEventListener('click', () => {
         lightbox.classList.remove('active');
         enableScroll();
     });
 
-    // Prev
     btnPrev.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         lightboxImg.src = images[currentIndex].src;
     });
 
-    // Next
     btnNext.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
         lightboxImg.src = images[currentIndex].src;
     });
 
-    // Close when clicking outside the image
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
@@ -56,7 +52,6 @@ if (images.length > 0) {
         }
     });
 
-    // Keyboard controls
     document.addEventListener('keydown', e => {
         if (!lightbox.classList.contains('active')) return;
 
@@ -65,10 +60,12 @@ if (images.length > 0) {
             enableScroll();
         }
         if (e.key === 'ArrowLeft') {
-            btnPrev.click();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex].src;
         }
         if (e.key === 'ArrowRight') {
-            btnNext.click();
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex].src;
         }
     });
 }
@@ -79,42 +76,151 @@ if (images.length > 0) {
 const sections = document.querySelectorAll("section[id], #top");
 const navLinks = document.querySelectorAll("nav a[href^='#']");
 
-const spyObserver = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute("id");
+if (sections.length > 0 && navLinks.length > 0) {
+    const spyObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
 
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href") === `#${id}`) {
-                        link.classList.add("active");
-                    }
-                });
-            }
-        });
-    },
-    {
-        threshold: 0.3,
-        rootMargin: "-20% 0px -50% 0px"
-    }
-);
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href") === `#${id}`) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        },
+        {
+            threshold: 0.3,
+            rootMargin: "-20% 0px -50% 0px"
+        }
+    );
 
-sections.forEach(section => spyObserver.observe(section));
+    sections.forEach(section => spyObserver.observe(section));
+}
 
 /* ---------------------------------------------------
-   LANGUAGE DROPDOWN
+   LANGUAGE DROPDOWN — HOVER ONLY
 --------------------------------------------------- */
-const langBtn = document.querySelector(".lang-btn");
+const langDropdown = document.querySelector(".lang-dropdown");
 const langMenu = document.querySelector(".lang-menu");
 
-if (langBtn && langMenu) {
-    langBtn.addEventListener("click", e => {
-        e.stopPropagation();
-        langMenu.style.display = langMenu.style.display === "block" ? "none" : "block";
+if (langDropdown && langMenu) {
+    langDropdown.addEventListener("mouseenter", () => {
+        langMenu.style.display = "block";
     });
 
-    document.addEventListener("click", () => {
+    langDropdown.addEventListener("mouseleave", () => {
         langMenu.style.display = "none";
+    });
+
+    langDropdown.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+}
+
+/* ---------------------------------------------------
+   HAMBURGER DROPDOWN MENU — FIXED
+--------------------------------------------------- */
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const header = document.querySelector('header');
+
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('open');
+    });
+
+    hamburger.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+            mobileMenu.classList.add('open');
+        }
+    });
+
+    header.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
+}
+
+/* ---------------------------------------------------
+   BOOK NOW FLOATING BUTTON
+--------------------------------------------------- */
+const bookBtn = document.getElementById("book-now-float");
+
+let lastScrollY = window.scrollY;
+let targetOffset = 0;
+let currentOffset = 0;
+
+function animateBook() {
+    if (!bookBtn) return;
+    currentOffset += (targetOffset - currentOffset) * 0.06;
+    bookBtn.style.transform = `translateY(calc(-50% + ${currentOffset}px))`;
+    requestAnimationFrame(animateBook);
+}
+
+if (bookBtn) {
+    window.addEventListener("scroll", () => {
+        const newY = window.scrollY;
+        const direction = newY > lastScrollY ? "down" : "up";
+
+        const maxOffset = window.innerHeight * 0.30;
+
+        if (direction === "down") {
+            targetOffset = -maxOffset;
+        } else {
+            targetOffset = maxOffset;
+        }
+
+        clearTimeout(window._centerTimeout);
+        window._centerTimeout = setTimeout(() => {
+            targetOffset = 0;
+        }, 200);
+
+        lastScrollY = newY;
+    });
+
+    animateBook();
+}
+
+/* ---------------------------------------------------
+   PACKAGE CARDS — SIMPLE HOVER LOGIC
+--------------------------------------------------- */
+const cards = document.querySelectorAll('.pkg-card');
+
+if (cards.length >= 3) {
+    cards[1].classList.add('extended');
+}
+
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        cards.forEach(c => c.classList.remove('extended'));
+        card.classList.add('extended');
+    });
+});
+
+const wrapper = document.querySelector('.package-wrapper');
+
+if (wrapper) {
+    wrapper.addEventListener('mouseleave', () => {
+        cards.forEach(c => c.classList.remove('extended'));
+        cards[1].classList.add('extended');
     });
 }

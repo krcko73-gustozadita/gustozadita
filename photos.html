@@ -9,18 +9,26 @@
 
 <body>
 
-<header style="z-index:99999; position:sticky; top:0;">
+<a id="book-now-float" href="https://gustozadita.simplybook.it/v2/" target="_blank">BOOK NOW</a>
+
+<div id="top"></div>
+
+<header>
     <div class="header-inner">
 
         <div class="header-top-row">
 
-            <!-- CLICKABLE LOGO -->
             <a href="index.html">
                 <img src="img/logo.png" alt="Gustoza Đita" class="logo-img" loading="lazy">
             </a>
 
-            <nav>
-                <a href="index.html">Home</a>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+
+            <nav class="mobile-menu">
+                <a href="index.html#top">Home</a>
+                <a href="index.html#story">Story</a>
                 <a href="index.html#packages">Packages</a>
                 <a href="index.html#included">Included</a>
                 <a href="index.html#custom">Customize</a>
@@ -29,7 +37,7 @@
                 <a href="index.html#contact">Contact</a>
             </nav>
 
-            <div class="lang-dropdown" style="position:relative; z-index:99999;">
+            <div class="lang-dropdown">
                 <button class="lang-btn">EN ▾</button>
                 <div class="lang-menu">
                     <a href="photos-de.html">DE</a>
@@ -38,6 +46,7 @@
                     <a href="photos-it.html">IT</a>
                 </div>
             </div>
+
         </div>
 
         <div class="header-slogan-desktop">
@@ -52,36 +61,37 @@
     <h1 style="margin-bottom:10px;">Photo Galleries</h1>
     <p class="subtitle">Choose what you want to experience first</p>
 
-    <div class="photos-grid">
+    <!-- NEW UNIFIED GRID -->
+    <div class="photo-grid">
 
         <a href="boat-gallery.html">
             <img src="img/boat-cover.jpg" alt="Boat gallery" loading="lazy">
-            <div class="gallery-title">Boat</div>
+            <div class="label">Boat</div>
         </a>
 
         <a href="konoba-gallery.html">
             <img src="img/konoba-cover.jpg" alt="Tavern gallery" loading="lazy">
-            <div class="gallery-title">Tavern</div>
+            <div class="label">Tavern</div>
         </a>
 
         <a href="uvale-gallery.html">
             <img src="img/uvala-cover.jpg" alt="Hidden bays gallery" loading="lazy">
-            <div class="gallery-title">Hidden Bays</div>
+            <div class="label">Hidden Bays</div>
         </a>
 
         <a href="ribolov-gallery.html">
             <img src="img/ribolov-cover.jpg" alt="Fishing gallery" loading="lazy">
-            <div class="gallery-title">Fishing</div>
+            <div class="label">Fishing</div>
         </a>
 
         <a href="kajaci-gallery.html">
             <img src="img/kayak-cover.jpg" alt="Kayak gallery" loading="lazy">
-            <div class="gallery-title">Kayaks</div>
+            <div class="label">Kayaks</div>
         </a>
 
         <a href="ebike-gallery.html">
             <img src="img/ebike-cover.jpg" alt="E‑bike gallery" loading="lazy">
-            <div class="gallery-title">E‑Bike</div>
+            <div class="label">E‑Bike</div>
         </a>
 
     </div>

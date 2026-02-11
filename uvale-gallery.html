@@ -9,18 +9,29 @@
 
 <body>
 
+<a id="book-now-float" href="https://gustozadita.simplybook.it/v2/" target="_blank">BOOK NOW</a>
+
+<div id="top"></div>
+
 <header>
     <div class="header-inner">
 
         <div class="header-top-row">
 
-            <!-- CLICKABLE LOGO -->
+            <!-- LOGO -->
             <a href="index.html">
                 <img src="img/logo.png" alt="Gustoza Đita" class="logo-img" loading="lazy">
             </a>
 
-            <nav>
-                <a href="index.html">Home</a>
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <nav class="mobile-menu">
+                <a href="index.html#top">Home</a>
+                <a href="index.html#story">Story</a>
                 <a href="index.html#packages">Packages</a>
                 <a href="index.html#included">Included</a>
                 <a href="index.html#custom">Customize</a>
@@ -29,6 +40,7 @@
                 <a href="index.html#contact">Contact</a>
             </nav>
 
+            <!-- LANG -->
             <div class="lang-dropdown">
                 <button class="lang-btn">EN ▾</button>
                 <div class="lang-menu">
@@ -38,6 +50,7 @@
                     <a href="uvale-gallery-it.html">IT</a>
                 </div>
             </div>
+
         </div>
 
         <div class="header-slogan-desktop">
@@ -52,30 +65,40 @@
     <p class="subtitle">Quiet coves, crystal water and untouched nature</p>
 </section>
 
+<!-- BACK LINK ABOVE GALLERY -->
+<p class="subtitle" style="margin-bottom:30px; text-align:center;">
+    <a href="photos.html" class="back-link">
+    ← Back to all photo categories
+</a>
+
+</p>
+
 <div class="gallery">
 
-    <img src="img/uvala1.jpg" loading="lazy" class="lightbox-trigger" alt="Hidden bay with calm turquoise water">
-    <img src="img/uvala2.jpg" loading="lazy" class="lightbox-trigger" alt="Secluded cove surrounded by pine trees">
-    <img src="img/uvala3.jpg" loading="lazy" class="lightbox-trigger" alt="Rocky coastline and crystal clear sea">
-    <img src="img/uvala4.jpg" loading="lazy" class="lightbox-trigger" alt="Quiet bay perfect for swimming and relaxing">
-    <img src="img/uvala5.jpg" loading="lazy" class="lightbox-trigger" alt="Shallow turquoise lagoon with natural shade">
-    <img src="img/uvala6.jpg" loading="lazy" class="lightbox-trigger" alt="Hidden beach accessible only by boat">
+    <img src="img/uvala1.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/uvala2.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/uvala3.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/uvala4.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/uvala5.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/uvala6.jpg" loading="lazy" class="lightbox-trigger" alt="">
 
-    <!-- Cover always last -->
-    <img src="img/uvala-cover.jpg" loading="lazy" class="lightbox-trigger" alt="Cover image – pristine Dalmatian hidden bay">
-
+    <!-- Cover last -->
+    <img src="img/uvala-cover.jpg" loading="lazy" class="lightbox-trigger" alt="">
 </div>
 
+<!-- BACK LINK BELOW GALLERY -->
 <p class="subtitle" style="margin-top:40px; text-align:center;">
-    <a href="photos.html" style="color:#f4b544; text-decoration:none; font-weight:600;">
-        ← Back to all photo categories
-    </a>
+    <a href="photos.html" class="back-link">
+    ← Back to all photo categories
+</a>
+
 </p>
 
 <footer>
     © 2026 Gustoza Đita – All‑Inclusive Island Experience
 </footer>
 
+<!-- LIGHTBOX -->
 <div class="lightbox-overlay">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-image" src="" alt="">

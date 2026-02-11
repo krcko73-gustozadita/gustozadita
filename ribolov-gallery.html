@@ -2,25 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gustoza Đita – Fishing Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<a id="book-now-float" href="https://gustozadita.simplybook.it/v2/" target="_blank">BOOK NOW</a>
+
+<div id="top"></div>
+
 <header>
     <div class="header-inner">
 
         <div class="header-top-row">
 
-            <!-- CLICKABLE LOGO -->
+            <!-- LOGO -->
             <a href="index.html">
                 <img src="img/logo.png" alt="Gustoza Đita" class="logo-img" loading="lazy">
             </a>
 
-            <nav>
-                <a href="index.html">Home</a>
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <nav class="mobile-menu">
+                <a href="index.html#top">Home</a>
+                <a href="index.html#story">Story</a>
                 <a href="index.html#packages">Packages</a>
                 <a href="index.html#included">Included</a>
                 <a href="index.html#custom">Customize</a>
@@ -29,6 +40,7 @@
                 <a href="index.html#contact">Contact</a>
             </nav>
 
+            <!-- LANG -->
             <div class="lang-dropdown">
                 <button class="lang-btn">EN ▾</button>
                 <div class="lang-menu">
@@ -38,6 +50,7 @@
                     <a href="ribolov-gallery-it.html">IT</a>
                 </div>
             </div>
+
         </div>
 
         <div class="header-slogan-desktop">
@@ -52,27 +65,39 @@
     <p class="subtitle">Local techniques, fresh catch and island traditions</p>
 </section>
 
+<!-- BACK LINK ABOVE GALLERY -->
+<p class="subtitle" style="margin-bottom:30px; text-align:center;">
+    <a href="photos.html" class="back-link">
+    ← Back to all photo categories
+</a>
+
+</p>
+
 <div class="gallery">
 
-    <img src="img/ribolov1.jpg" loading="lazy" class="lightbox-trigger" alt="Fishing experience in the Zadar archipelago">
-    <img src="img/ribolov2.jpg" loading="lazy" class="lightbox-trigger" alt="Traditional Dalmatian fishing moments at sea">
-    <img src="img/ribolov3.jpg" loading="lazy" class="lightbox-trigger" alt="Fresh catch prepared in authentic island style">
-    <img src="img/ribolov4.jpg" loading="lazy" class="lightbox-trigger" alt="Local fishing techniques passed through generations">
-    <img src="img/ribolov5.jpg" loading="lazy" class="lightbox-trigger" alt="Sea-to-table experience with island seafood">
-    <img src="img/ribolov-cover.jpg" loading="lazy" class="lightbox-trigger" alt="Cover image – fishing adventure on the Adriatic">
+    <img src="img/ribolov1.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/ribolov2.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/ribolov3.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/ribolov4.jpg" loading="lazy" class="lightbox-trigger" alt="">
+    <img src="img/ribolov5.jpg" loading="lazy" class="lightbox-trigger" alt="">
 
+    <!-- Cover last -->
+    <img src="img/ribolov-cover.jpg" loading="lazy" class="lightbox-trigger" alt="">
 </div>
 
+<!-- BACK LINK BELOW GALLERY -->
 <p class="subtitle" style="margin-top:40px; text-align:center;">
-    <a href="photos.html" style="color:#f4b544; text-decoration:none; font-weight:600;">
-        ← Back to all photo categories
-    </a>
+    <a href="photos.html" class="back-link">
+    ← Back to all photo categories
+</a>
+
 </p>
 
 <footer>
     © 2026 Gustoza Đita – All‑Inclusive Island Experience
 </footer>
 
+<!-- LIGHTBOX -->
 <div class="lightbox-overlay">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-image" src="" alt="">
