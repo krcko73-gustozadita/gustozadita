@@ -863,11 +863,12 @@ footer {
 --------------------------------------------------- */
 @media (max-width: 768px) {
 
+   @media (max-width: 768px) {
     .hero-icons-inline {
         display: flex !important;
-        flex-wrap: nowrap !important;   /* NE PRELAMATI */
-        overflow-x: auto !important;    /* SCROLL AKO TREBA */
-        gap: 18px !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 10px !important;     /* SMANJEN RAZMAK */
         padding: 0 10px !important;
         margin-top: 20px !important;
         width: 100% !important;
@@ -879,7 +880,7 @@ footer {
     }
 
     .hero-item {
-        flex: 0 0 auto !important;      /* SVAKI EMOJI SAMOSTALAN */
+        flex: 0 0 auto !important;
         text-align: center !important;
     }
 
@@ -892,6 +893,7 @@ footer {
         font-size: 12px !important;
     }
 }
+
 a[href^="tel"] {
     color: #ffffff !important;
     text-decoration: none !important;
@@ -911,7 +913,7 @@ a[href^="tel"]:hover {
 }
 @media (max-width: 768px) {
     #book-now-float {
-        padding: 4px 6px;          /* ekstremno tanko */
+        padding: 6px 8px;          /* ekstremno tanko */
         font-size: 9px;            /* vrlo mali font */
         letter-spacing: 0.03em;    /* minimalan razmak */
         border-radius: 3px 0 0 3px;/* tanji zlatni okvir */
