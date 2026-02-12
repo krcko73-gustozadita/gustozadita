@@ -911,7 +911,7 @@ a[href^="tel"]:hover {
 }
 @media (max-width: 768px) {
     #book-now-float {
-        padding: 2px 3px;          /* ekstremno tanko */
+        padding: 4px 6px;          /* ekstremno tanko */
         font-size: 9px;            /* vrlo mali font */
         letter-spacing: 0.03em;    /* minimalan razmak */
         border-radius: 3px 0 0 3px;/* tanji zlatni okvir */
