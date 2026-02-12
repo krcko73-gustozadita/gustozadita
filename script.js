@@ -102,14 +102,14 @@ if (sections.length > 0 && navLinks.length > 0) {
 }
 
 /* ---------------------------------------------------
-   LANGUAGE DROPDOWN — FIXED FOR MOBILE
+   LANGUAGE DROPDOWN — FIXED
 --------------------------------------------------- */
 const langDropdown = document.querySelector(".lang-dropdown");
 const langMenu = document.querySelector(".lang-menu");
 
 if (langDropdown && langMenu) {
 
-    // CLICK TOGGLE — radi na svim uređajima
+    // CLICK TOGGLE — radi svugdje
     langDropdown.addEventListener("click", (e) => {
         e.stopPropagation();
         langMenu.style.display =
@@ -123,7 +123,7 @@ if (langDropdown && langMenu) {
 }
 
 /* ---------------------------------------------------
-   HAMBURGER MENU — FIXED FOR MOBILE
+   HAMBURGER MENU — FIXED
 --------------------------------------------------- */
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -131,13 +131,13 @@ const header = document.querySelector('header');
 
 if (hamburger && mobileMenu) {
 
-    // CLICK — radi na svim uređajima
+    // CLICK — radi svugdje
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('open');
     });
 
-    // DESKTOP HOVER — radi samo iznad 768px
+    // DESKTOP HOVER — samo iznad 768px
     header.addEventListener('mouseenter', () => {
         if (window.innerWidth > 768) {
             mobileMenu.classList.add('open');
