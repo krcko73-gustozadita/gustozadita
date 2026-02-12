@@ -71,35 +71,6 @@ if (images.length > 0 && lightbox && lightboxImg && btnPrev && btnNext && btnClo
 }
 
 /* ---------------------------------------------------
-   MOBITEL OPTIMIZACIJE — TAP TO CLOSE
---------------------------------------------------- */
-if (lightboxImg) {
-    lightboxImg.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-        enableScroll();
-    });
-}
-
-/* ---------------------------------------------------
-   MOBITEL OPTIMIZACIJE — SWIPE LEFT/RIGHT
---------------------------------------------------- */
-let startX = 0;
-
-if (lightbox) {
-    lightbox.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-    });
-
-    lightbox.addEventListener("touchend", e => {
-        let endX = e.changedTouches[0].clientX;
-        let diff = endX - startX;
-
-        if (diff > 50) btnPrev.click();
-        if (diff < -50) btnNext.click();
-    });
-}
-
-/* ---------------------------------------------------
    SCROLL-SPY
 --------------------------------------------------- */
 const sections = document.querySelectorAll("section[id], #top");
@@ -159,36 +130,26 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const header = document.querySelector('header');
 
 if (hamburger && mobileMenu) {
+
+    // CLICK — jedini način otvaranja/zatvaranja
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('open');
     });
 
-    hamburger.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 768) {
-            mobileMenu.classList.add('open');
-        }
-    });
-
-    header.addEventListener('mouseleave', () => {
-        if (window.innerWidth > 768) {
-            mobileMenu.classList.remove('open');
-        }
-    });
-
+    // ZATVARANJE KAD KLIKNEŠ IZVAN MENIJA
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
             mobileMenu.classList.remove('open');
         }
     });
 
-    mobileMenu.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        mobileMenu.classList.remove('open');
-    }
-});
-
-
+    // ZATVARANJE KAD KLIKNEŠ LINK
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
 }
 
 /* ---------------------------------------------------
