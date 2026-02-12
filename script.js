@@ -123,28 +123,21 @@ if (langDropdown && langMenu) {
 }
 
 /* ---------------------------------------------------
-   HAMBURGER MENU — FIXED
+   HAMBURGER MENU — CLICK + DESKTOP HOVER CLOSE
 --------------------------------------------------- */
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
-const header = document.querySelector('header');
 
 if (hamburger && mobileMenu) {
 
-    // CLICK — radi svugdje
+    // CLICK — radi svugdje (mob + desktop)
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('open');
     });
 
-    // DESKTOP HOVER — samo iznad 768px
-    header.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 768) {
-            mobileMenu.classList.add('open');
-        }
-    });
-
-    header.addEventListener('mouseleave', () => {
+    // DESKTOP: zatvori hamburger kad miš izađe iz menija
+    mobileMenu.addEventListener('mouseleave', () => {
         if (window.innerWidth > 768) {
             mobileMenu.classList.remove('open');
         }
@@ -164,6 +157,8 @@ if (hamburger && mobileMenu) {
         });
     });
 }
+
+
 
 /* ---------------------------------------------------
    BOOK NOW FLOATING BUTTON
