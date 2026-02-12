@@ -71,6 +71,35 @@ if (images.length > 0 && lightbox && lightboxImg && btnPrev && btnNext && btnClo
 }
 
 /* ---------------------------------------------------
+   MOBITEL OPTIMIZACIJE — TAP TO CLOSE
+--------------------------------------------------- */
+if (lightboxImg) {
+    lightboxImg.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        enableScroll();
+    });
+}
+
+/* ---------------------------------------------------
+   MOBITEL OPTIMIZACIJE — SWIPE LEFT/RIGHT
+--------------------------------------------------- */
+let startX = 0;
+
+if (lightbox) {
+    lightbox.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+    });
+
+    lightbox.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        let diff = endX - startX;
+
+        if (diff > 50) btnPrev.click();
+        if (diff < -50) btnNext.click();
+    });
+}
+
+/* ---------------------------------------------------
    SCROLL-SPY
 --------------------------------------------------- */
 const sections = document.querySelectorAll("section[id], #top");
