@@ -843,32 +843,60 @@ footer {
     filter: brightness(1.25);
 }
 
+/* ---------------------------------------------------
+   MOBILE — SVE KARTICE OTVORENE
+--------------------------------------------------- */
 @media (max-width: 768px) {
 
-    /* sve kartice otvorene */
     .pkg-card {
         width: 100% !important;
         height: auto !important;
         min-height: 520px !important;
     }
 
-    /* sakrij vertikalni naslov */
     .pkg-card .vertical-label {
         opacity: 0 !important;
         height: 0 !important;
         padding: 0 !important;
     }
 
-    /* prikaži sadržaj kartice */
-    .pkg-card .pkg-content {
+    .pkg-content {
         opacity: 1 !important;
         transform: translateX(0) !important;
+        padding: 20px !important;
     }
 }
+/* ---------------------------------------------------
+   MOBILE — EMOJI U JEDNOM REDU
+--------------------------------------------------- */
 @media (max-width: 768px) {
-    .gallery img:hover,
-    .photo-grid img:hover {
-        transform: none !important;
-        filter: none !important;
+
+    .hero-icons-inline {
+        display: flex !important;
+        flex-wrap: nowrap !important;   /* NE PRELAMATI */
+        overflow-x: auto !important;    /* SCROLL AKO TREBA */
+        gap: 18px !important;
+        padding: 0 10px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .hero-icons-inline::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-item {
+        flex: 0 0 auto !important;      /* SVAKI EMOJI SAMOSTALAN */
+        text-align: center !important;
+    }
+
+    .hero-emoji {
+        font-size: 26px !important;
+        margin: 0 !important;
+    }
+
+    .hero-label {
+        font-size: 12px !important;
     }
 }
