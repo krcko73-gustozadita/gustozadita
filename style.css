@@ -168,13 +168,7 @@ header {
     opacity: 1;
 }
 
-.hamburger:hover + .mobile-menu {
-    display: flex;
-}
 
-.mobile-menu:hover {
-    display: flex;
-}
 
 /* ---------------------------------------------------
    HEADER SLOGAN
