@@ -843,3 +843,32 @@ footer {
     filter: brightness(1.25);
 }
 
+@media (max-width: 768px) {
+
+    /* sve kartice otvorene */
+    .pkg-card {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 520px !important;
+    }
+
+    /* sakrij vertikalni naslov */
+    .pkg-card .vertical-label {
+        opacity: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* prikaži sadržaj kartice */
+    .pkg-card .pkg-content {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+}
+@media (max-width: 768px) {
+    .gallery img:hover,
+    .photo-grid img:hover {
+        transform: none !important;
+        filter: none !important;
+    }
+}

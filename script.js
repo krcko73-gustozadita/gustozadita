@@ -182,11 +182,13 @@ if (hamburger && mobileMenu) {
         }
     });
 
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-        });
-    });
+    mobileMenu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+        mobileMenu.classList.remove('open');
+    }
+});
+
+
 }
 
 /* ---------------------------------------------------
