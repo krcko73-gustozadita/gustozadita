@@ -894,3 +894,11 @@ footer {
         font-size: 12px !important;
     }
 }
+a[href^="tel"] {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+a[href^="tel"]:hover {
+    color: #ffffff !important;
+}
