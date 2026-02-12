@@ -123,7 +123,7 @@ if (langDropdown && langMenu) {
 }
 
 /* ---------------------------------------------------
-   HAMBURGER DROPDOWN MENU — FIXED
+   HAMBURGER MENU — FIXED FOR MOBILE
 --------------------------------------------------- */
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -131,10 +131,23 @@ const header = document.querySelector('header');
 
 if (hamburger && mobileMenu) {
 
-    // CLICK — jedini način otvaranja/zatvaranja
+    // CLICK — radi na svim uređajima
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('open');
+    });
+
+    // DESKTOP HOVER — radi samo iznad 768px
+    header.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+            mobileMenu.classList.add('open');
+        }
+    });
+
+    header.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+            mobileMenu.classList.remove('open');
+        }
     });
 
     // ZATVARANJE KAD KLIKNEŠ IZVAN MENIJA
