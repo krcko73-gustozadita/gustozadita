@@ -835,3 +835,12 @@ footer {
     color: #ffe9a6;
     filter: brightness(1.25);
 }
+/* FIX: phone number always white on mobile */
+a[href^="tel"] {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+a[href^="tel"]:hover {
+    color: #ffffff !important;
+}
