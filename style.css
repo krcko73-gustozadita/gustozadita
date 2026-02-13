@@ -865,3 +865,20 @@ a[href^="tel"]:hover {
     color: #ffffff !important;
     opacity: 1;
 }
+/* ---------------------------------------------------
+   HERO TEXT — VISIBLE ON SLIDE 1 & 2, FADE ON SLIDE 3
+--------------------------------------------------- */
+
+.hero-text-cycle {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    animation: textCycle 25s infinite;
+}
+
+@keyframes textCycle {
+    0% { opacity: 0; }
+    4% { opacity: 1; }    /* pojavljuje se na početku slike 1 */
+    40% { opacity: 1; }   /* ostaje vidljiv kroz sliku 1 i 2 */
+    48% { opacity: 0; }   /* fade-out na početku slike 3 */
+    100% { opacity: 0; }
+}
