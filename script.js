@@ -120,6 +120,16 @@ if (langDropdown && langMenu) {
     document.addEventListener("click", () => {
         langMenu.style.display = "none";
     });
+
+    /* ---------------------------------------------------
+       AUTO CLOSE ON MOUSE LEAVE — NEW
+       (ponaša se kao hamburger meni)
+    --------------------------------------------------- */
+    langMenu.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 768) {
+            langMenu.style.display = "none";
+        }
+    });
 }
 
 /* ---------------------------------------------------
@@ -157,8 +167,6 @@ if (hamburger && mobileMenu) {
         });
     });
 }
-
-
 
 /* ---------------------------------------------------
    BOOK NOW FLOATING BUTTON
