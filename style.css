@@ -75,6 +75,12 @@ header {
     width: auto;
     display: block;
     margin: 0 auto;
+    transition: 0.25s ease;
+}
+
+.logo-img:hover {
+    filter: brightness(1.25);
+    transform: scale(1.05);
 }
 
 /* LANGUAGE DROPDOWN RIGHT */
@@ -126,8 +132,6 @@ header {
     background: rgba(255,255,255,0.12);
 }
 
-
-
 /* ---------------------------------------------------
    MOBILE MENU
 --------------------------------------------------- */
@@ -140,7 +144,6 @@ header {
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 10px;
     padding: 10px 0;
-    width: auto;
     min-width: 100px;
     display: none;
     flex-direction: column;
@@ -166,8 +169,6 @@ header {
     opacity: 1;
 }
 
-
-
 /* ---------------------------------------------------
    HEADER SLOGAN
 --------------------------------------------------- */
@@ -188,7 +189,16 @@ header {
 
 @media (max-width: 768px) {
     .header-slogan-desktop {
-        display: none;
+        display: block !important;
+        font-size: 11px;
+        line-height: 1.2;
+        margin-top: 4px;
+        max-width: 95%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0.9;
+        text-align: center;
     }
 }
 
@@ -198,7 +208,7 @@ header {
 
 .hero {
     position: relative;
-    height: 900px;
+    min-height: 900px; /* FIXED → MIN */
     overflow: hidden;
     text-align: center;
     padding: 160px 20px 150px;
@@ -283,7 +293,7 @@ header {
 
 @media (max-width: 768px) {
     .hero {
-        height: auto;
+        min-height: auto;
         padding: 120px 15px 80px;
     }
     .hero h1 {
@@ -334,18 +344,41 @@ header {
     opacity: 0.95;
 }
 
+/* ---------------------------------------------------
+   MOBILE — EMOJI FIX
+--------------------------------------------------- */
+
 @media (max-width: 768px) {
     .hero-icons-inline {
-        gap: 30px;
-        flex-wrap: wrap;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 10px !important;
+        padding: 0 10px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        justify-content: center !important;
     }
+
+    .hero-icons-inline::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-item {
+        flex: 0 0 auto !important;
+        text-align: center !important;
+    }
+
     .hero-emoji {
-        font-size: 28px;
+        font-size: 26px !important;
+        margin: 0 !important;
     }
+
     .hero-label {
-        font-size: 14px;
+        font-size: 12px !important;
     }
 }
+
 
 /* ---------------------------------------------------
    SECTIONS
@@ -480,6 +513,16 @@ footer {
     box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
 
+@media (max-width: 768px) {
+    #book-now-float {
+        padding: 6px 8px;
+        font-size: 9px;
+        letter-spacing: 0.03em;
+        border-radius: 3px 0 0 3px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+}
+
 /* ---------------------------------------------------
    PACKAGE CARDS
 --------------------------------------------------- */
@@ -584,8 +627,8 @@ footer {
     .pkg-card,
     .pkg-card.extended {
         width: 100% !important;
-        height: auto;
-        min-height: 520px;
+        height: auto !important;
+        min-height: 520px !important;
     }
 
     .vertical-label {
@@ -595,10 +638,22 @@ footer {
         font-size: 20px;
     }
 
+    .pkg-card .vertical-label {
+        opacity: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+    }
+
     .pkg-content {
-        padding: 20px;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        padding: 20px !important;
     }
 }
+
+/* ---------------------------------------------------
+   SECTION DIVIDER
+--------------------------------------------------- */
 
 .section {
     position: relative;
@@ -606,95 +661,44 @@ footer {
 
 .section:not(:last-child)::after {
     content: "";
-    display: block;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
     height: 1px;
-    margin: 60px auto 0;
-    background: linear-gradient(
-        to right,
-        #ffd75e 0%,
-        #ffd75e 40%,
-        transparent 40%,
-        transparent 60%,
-        #ffd75e 60%,
-        #ffd75e 100%
-    );
-    opacity: 0.9;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-50%);
+    margin-top: 40px;
 }
-
-.hero + .section::after {
-    margin-top: 200px !important;
-}
-
 /* ---------------------------------------------------
-   TEXT ANIMATION
---------------------------------------------------- */
-
-.hero-text-cycle {
-    animation: textCycle 25s infinite;
-}
-
-@keyframes textCycle {
-    0%   { opacity: 0; transform: translateY(20px); }
-    4%   { opacity: 1; transform: translateY(0); }
-    20%  { opacity: 1; }
-    40%  { opacity: 1; }
-    46%  { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 0; }
-}
-
-.phone-number {
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.whatsapp-note {
-    display: block;
-    font-size: 15px;
-    margin-top: 4px;
-    color: #25D366;
-    font-weight: 500;
-    opacity: 0.95;
-}
-
-.logo-img {
-    transition: 0.25s ease;
-}
-
-.logo-img:hover {
-    filter: brightness(1.25);
-    transform: scale(1.05);
-}
-
-/* ---------------------------------------------------
-   GALLERY GRID
+   GALLERY GRID (boat, konoba, uvale, ribolov…)
 --------------------------------------------------- */
 
 .gallery {
     max-width: 1100px;
     margin: 0 auto;
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-    gap: 22px !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
 }
 
 .gallery img {
-    width: 100% !important;
+    width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover !important;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     cursor: pointer;
     transition: transform .25s ease;
-    display: block !important;
+    display: block;
 }
 
 .gallery img:hover {
     transform: scale(1.04);
 }
+
 /* ---------------------------------------------------
-   PHOTO GALLERIES GRID (photos.html)
+   PHOTO GRID (photos.html – kategorije)
 --------------------------------------------------- */
 
 .photo-grid {
@@ -732,6 +736,7 @@ footer {
     font-weight: 600;
     opacity: 0.9;
 }
+
 /* ---------------------------------------------------
    LIGHTBOX
 --------------------------------------------------- */
@@ -750,13 +755,11 @@ footer {
     display: flex;
 }
 
-/* FADE-IN ZA SLIKU */
 .lightbox-image {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
-
     opacity: 0;
     transform: scale(0.92);
     transition: opacity 0.35s ease, transform 0.35s ease;
@@ -767,7 +770,6 @@ footer {
     transform: scale(1);
 }
 
-/* X GUMB */
 .lightbox-close {
     position: absolute;
     top: 30px;
@@ -776,7 +778,6 @@ footer {
     color: #fff;
     cursor: pointer;
     user-select: none;
-
     opacity: 0;
     transform: scale(0.92);
     transition: opacity 0.35s ease, transform 0.35s ease;
@@ -787,7 +788,6 @@ footer {
     transform: scale(1);
 }
 
-/* STRELICE — ČISTE BIJELE + FADE-IN */
 .lightbox-prev,
 .lightbox-next {
     position: absolute;
@@ -798,11 +798,9 @@ footer {
     cursor: pointer;
     user-select: none;
     padding: 20px;
-
     background: none;
     border: none;
     outline: none;
-
     opacity: 0;
     transition: opacity 0.35s ease, transform 0.35s ease;
 }
@@ -823,6 +821,7 @@ footer {
 }
 
 /* BACK LINK HOVER EFFECT */
+
 .back-link {
     color: #f4b544;
     text-decoration: none;
@@ -833,126 +832,4 @@ footer {
 .back-link:hover {
     color: #ffe9a6;
     filter: brightness(1.25);
-}
-
-/* ---------------------------------------------------
-   MOBILE — SVE KARTICE OTVORENE
---------------------------------------------------- */
-@media (max-width: 768px) {
-
-    .pkg-card {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 520px !important;
-    }
-
-    .pkg-card .vertical-label {
-        opacity: 0 !important;
-        height: 0 !important;
-        padding: 0 !important;
-    }
-
-    .pkg-content {
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        padding: 20px !important;
-    }
-}
-/* ---------------------------------------------------
-   MOBILE — EMOJI U JEDNOM REDU
---------------------------------------------------- */
-@media (max-width: 768px) {
-
-   @media (max-width: 768px) {
-    .hero-icons-inline {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 10px !important;     /* SMANJEN RAZMAK */
-        padding: 0 10px !important;
-        margin-top: 20px !important;
-        width: 100% !important;
-        justify-content: center !important;
-    }
-
-    .hero-icons-inline::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hero-item {
-        flex: 0 0 auto !important;
-        text-align: center !important;
-    }
-
-    .hero-emoji {
-        font-size: 26px !important;
-        margin: 0 !important;
-    }
-
-    .hero-label {
-        font-size: 12px !important;
-    }
-}
-
-a[href^="tel"] {
-    color: #ffffff !important;
-    text-decoration: none !important;
-}
-
-a[href^="tel"]:hover {
-    color: #ffffff !important;
-}
-@media (max-width: 768px) {
-    #book-now-float {
-        padding: 8px 6px;       /* tanje */
-        font-size: 12px;        /* manji font */
-        letter-spacing: 0.08em; /* manje razmaka */
-        border-radius: 6px 0 0 6px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
-}
-@media (max-width: 768px) {
-    #book-now-float {
-        padding: 6px 8px;          /* ekstremno tanko */
-        font-size: 9px;            /* vrlo mali font */
-        letter-spacing: 0.03em;    /* minimalan razmak */
-        border-radius: 3px 0 0 3px;/* tanji zlatni okvir */
-        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    }
-}
-/* ---------------------------------------------------
-   FIX: HEADER SLOGAN ALWAYS VISIBLE ON MOBILE
---------------------------------------------------- */
-
-@media (max-width: 768px) {
-    .header-slogan-desktop {
-        display: block !important;
-        font-size: 11px;
-        line-height: 1.2;
-        margin-top: 4px;
-        max-width: 95%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        opacity: 0.9;
-        text-align: center;
-    }
-}
-/* ---------------------------------------------------
-   FIX: HEADER SLOGAN ALWAYS VISIBLE ON MOBILE
---------------------------------------------------- */
-
-@media (max-width: 768px) {
-    .header-slogan-desktop {
-        display: block !important;
-        font-size: 11px;
-        line-height: 1.2;
-        margin-top: 4px;
-        max-width: 95%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        opacity: 0.9;
-        text-align: center;
-    }
 }
