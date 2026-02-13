@@ -844,3 +844,24 @@ a[href^="tel"] {
 a[href^="tel"]:hover {
     color: #ffffff !important;
 }
+/* Phone link always white */
+.phone-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+/* WhatsApp link always white */
+.whatsapp-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.whatsapp-link:hover,
+.phone-link:hover {
+    color: #ffffff !important;
+    opacity: 1;
+}
