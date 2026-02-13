@@ -208,7 +208,7 @@ header {
 
 .hero {
     position: relative;
-    min-height: 900px; /* FIXED → MIN */
+    min-height: 900px;
     overflow: hidden;
     text-align: center;
     padding: 160px 20px 150px;
@@ -345,7 +345,7 @@ header {
 }
 
 /* ---------------------------------------------------
-   MOBILE — EMOJI FIX
+   MOBILE — EMOJI FIX (HONOR 90 + ANDROID)
 --------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -353,11 +353,14 @@ header {
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
+        overflow-y: hidden !important;
         gap: 10px !important;
         padding: 0 10px !important;
         margin-top: 20px !important;
         width: 100% !important;
         justify-content: center !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
     }
 
     .hero-icons-inline::-webkit-scrollbar {
@@ -378,7 +381,6 @@ header {
         font-size: 12px !important;
     }
 }
-
 
 /* ---------------------------------------------------
    SECTIONS
@@ -428,7 +430,6 @@ header {
     font-size: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
-
 /* ---------------------------------------------------
    CUSTOM OPTIONS
 --------------------------------------------------- */
@@ -670,6 +671,7 @@ footer {
     transform: translateX(-50%);
     margin-top: 40px;
 }
+
 /* ---------------------------------------------------
    GALLERY GRID (boat, konoba, uvale, ribolov…)
 --------------------------------------------------- */
