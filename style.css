@@ -71,7 +71,7 @@ header {
 
 /* LOGO CENTER */
 .logo-img {
-    height: 50px;
+    height: 42px;
     width: auto;
     display: block;
     margin: 0 auto;
@@ -881,4 +881,32 @@ a[href^="tel"]:hover {
     40% { opacity: 1; }   /* ostaje vidljiv kroz sliku 1 i 2 */
     48% { opacity: 0; }   /* fade-out na početku slike 3 */
     100% { opacity: 0; }
+}
+/* ZONA PLOVIDBE – RESPONSIVE */
+.route-map img {
+    width: 100%;
+    height: auto;
+    max-width: 700px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+}
+/* MEETING POINT MAPA – RESPONSIVE */
+.map-container iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 350px;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+}
+/* WAKE UP ON THE SEA — FIX IMAGE SIZE */
+.wake-img img {
+    width: 180px;        /* smanji sliku */
+    height: auto;
+    border-radius: 8px;
+    opacity: 0.9;
+    display: block;
+    margin: 0 auto;      /* centriranje */
 }
